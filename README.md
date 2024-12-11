@@ -2,7 +2,7 @@
 The use of the ray tracer is not particularly complicated, but it is also not the most intuitive. 
 Thus, I feel compelled to leave these instructions for ease of use.
 
-### Compiling and Makefile Use
+## Compiling and Makefile Use
 For the convience of the user, I have add a standard Makefile to this project. 
 In order to compile the source files, one must simply use the following command:
 ```
@@ -19,7 +19,7 @@ make clean
 ```
 This will delete the 'build' folder with all of the executable files inside.
 
-### Running the Code
+## Running the Code
 Once the code has been compiled, the executable can be run with the following command
 (assuming the current directory is still the main directory):
 ```
@@ -29,4 +29,58 @@ The 'input.txt' is just a stand-in for any properly formatted input file. If eve
 has been done correctly, a file called 'input.ppm' should have been created after a
 couple of seconds and it should be identical to 'baseline.ppm'.
 
-### Creating the Input File
+## Creating the Input File
+The ray tracer is looking for a specifically formatted input text file.
+
+### Mandatory Settings
+Six options must be explicitly defined. They are as follows:
+- Camera Location
+- View Direction
+- Up Direction
+- Horizontal Field of View
+- The Size of the Output Image
+- The Background Color
+
+With these six defined, the ray tracer is able to produce an image. The formatting for
+these are as follows (with 'x y z' and 'r g b a' in the place of decimal numbers):
+```
+eye x y z
+viewdir x y z
+updir x y z
+hfov x
+imsize x y
+bkgcolor r g b a
+```
+
+The example from the provided input file looks as follows:
+```
+eye 0 5 0
+viewdir 0 0 1
+updir 0 1 0
+hfov 45
+imsize 1080 1080
+bkgcolor 0.5 0.7 0.9 1
+```
+
+### Lights
+At this point, the environment is ready to be populated with objects. The one with the
+simplest formatting is lights, as they are not reliant on other objects. To do this,
+uses a line similar to the one below.
+```
+light x y z w r g b
+```
+The 'w' dictates whether or not this light acts as a point or directional light. If 'w'
+is a 0, than the light is a directional light. In those instances, then 'x y z' 
+represents the direction from which the light is coming. If the 'w' is instead a 1,
+then the light is a point light and 'x y z' then represents the location of the light.
+
+The 'r g b' always represents the color of the light. Here is the example used in the 
+provided input file (which represents a directional light pointing straight down):
+```
+light 0 -1 0 0 1 1 1
+```
+
+### Material Colors
+
+
+
