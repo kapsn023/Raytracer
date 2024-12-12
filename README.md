@@ -116,3 +116,14 @@ respectively.
 The 'eta' (as in the Greek character) refers to the index of refraction and 
 'a' refers to the material's opacity; both of which impact how the material
 reflects and bends lights.
+
+### Texture 
+Textures work in a similar way to material colors in the sense that all spheres
+and faces are assigned the last declared texture. Therefore, one must declare all
+faces and spheres without textures before any are declared with textures.
+Those objects still need to have material colors, as the texture only overrides the 
+ambient color of those objects. Textures are declared as follows:
+```
+texture texture.ppm
+```
+The texture must be a .ppm file. An error will result from an other file format.
