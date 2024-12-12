@@ -30,7 +30,8 @@ has been done correctly, a file called 'input.ppm' should have been created afte
 couple of seconds and it should be identical to 'baseline.ppm'.
 
 ## Creating the Input File
-The ray tracer is looking for a specifically formatted input text file.
+The ray tracer is looking for a specifically formatted input text file. It should be
+generally assumed that the number values should lie on the range of 0.0 to 1.0.
 
 ### Mandatory Settings
 Six options must be explicitly defined. They are as follows:
@@ -75,12 +76,43 @@ represents the direction from which the light is coming. If the 'w' is instead a
 then the light is a point light and 'x y z' then represents the location of the light.
 
 The 'r g b' always represents the color of the light. Here is the example used in the 
-provided input file (which represents a directional light pointing straight down):
+provided input file (which represents a white directional light pointing straight down):
 ```
 light 0 -1 0 0 1 1 1
 ```
 
 ### Material Colors
+In order to place faces and spheres into the environment, one must first define a
+material color. Spheres and faces will take on the properties of the last material
+color to be defined. If none have yet been defined, an error results. They can be
+defined with the following formatting:
+```
+mtlcolor dr dg db sr sg sb ka kd ks n a eta
+```
+The first three numbers, 'dr dg db', are representing the diffuse color of the 
+material, which is also used to define the ambient color of the material.
+For 'sr sg sb', the specular color is being represented. 'ka kd ks'
+are weights that control the surface's ambient, diffuse, and specular reflectively,
+respectively. 
 
+Below is a picture of spheres with varying ka values, going from 0.2 to 0.8.
 
+**(Insert Picture Here)**
 
+Below is a picture of spheres with varying kd values, going from 0.2 to 0.8.
+
+**(Insert Picture Here)**
+
+Below is a picture of spheres with varying ks values, going from 0.2 to 0.8.
+
+**(Insert Picture Here)**
+
+The 'n' controls the rate of falloff of the specular highlight and its
+intensity. It can be seen below, with values of 2, 6, 10, 50, and 100
+respectively.
+
+**(Insert Picture Here)**
+
+The 'eta' (as in the Greek character) refers to the index of refraction and 
+'a' refers to the material's opacity; both of which impact how the material
+reflects and bends lights.
