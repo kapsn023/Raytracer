@@ -97,21 +97,21 @@ respectively.
 
 Below is a picture of spheres with varying ka values, going from 0.2 to 0.8.
 
-**(Insert Picture Here)**
+![](/images/ka_demonstration.png)
 
 Below is a picture of spheres with varying kd values, going from 0.2 to 0.8.
 
-**(Insert Picture Here)**
+![](/images/kd_demonstration.png)
 
 Below is a picture of spheres with varying ks values, going from 0.2 to 0.8.
 
-**(Insert Picture Here)**
+![](/images/ks_demonstration.png)
 
 The 'n' controls the rate of falloff of the specular highlight and its
-intensity. It can be seen below, with values of 2, 6, 10, 50, and 100
+intensity. It can be seen below, with values of 2, 6, 10, 50, and 100,
 respectively.
 
-**(Insert Picture Here)**
+![](/images/n_demonstration.png)
 
 The 'eta' (as in the Greek character) refers to the index of refraction and 
 'a' refers to the material's opacity; both of which impact how the material
