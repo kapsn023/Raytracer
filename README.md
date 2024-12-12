@@ -136,3 +136,60 @@ sphere x y z r
 The 'x y z' represents the location of the center of the sphere. 'r' represents the
 radius of the sphere. It will take on the last defined material color and texture as 
 its own.
+
+### Faces
+Faces are the most complicated to input. They require at least two distinct steps.
+Firstly, one must define the vertices that are to make up the triangle. They
+are defined as follows:
+```
+v x y z
+```
+The 'x y z' simply refers to the vertex's location in space. All vertices that are used
+for a face must be defined before the face is. 
+
+The next step is optional. It is required only if the face is to be textured. It looks as 
+follows:
+```
+vt x y
+```
+This simply represents a vertex in the texture coordinate system.
+
+Next, one can define a face with previously defined vertices. That looks as follows if no 
+texture is to be used:
+```
+f v1 v2 v3
+```
+and as follows if the face will have a texture:
+```
+f v1/vt1 v2/vt2 v3/vt3
+```
+All of those variables represent the previously defined vertices, starting at 1 and going
+up from there.
+
+Below is an example of two faces being declared with and without textures, respectively.
+```
+mtlcolor 1 1 1 1 1 1 0.2 0.8 0 20 1 0
+texture earthtexture.ppm
+v 10 0 5
+v -10 0 5
+v -10 0 25
+v 10 0 25
+
+vt 0 1
+vt 1 1
+vt 1 0
+vt 0 0 
+
+f 1/1 2/2 3/3
+f 1/1 3/3 4/4
+```
+```
+mtlcolor 1 1 1 1 1 1 0.2 0.8 0 20 1 0
+v 10 0 5
+v -10 0 5
+v -10 0 25
+v 10 0 25
+
+f 1 2 3
+f 1 3 4
+```
